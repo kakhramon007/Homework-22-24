@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest News</title>
+    <link rel="stylesheet" href="{% static 'news_website_homework_app/css/main.css' %}">
+</head>
+<body>
+    <div class="container">
+        {% for key, item in latest_news_order_by_category.items %}
+            <div class="news-item">
+                <h4>{{ item.title }}</h4>
+                <p>{{ item.date_added }}</p>
+                <a href="{% url 'read_more' news_id=item.id %}">Read More</a>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

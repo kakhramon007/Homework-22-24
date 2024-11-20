@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World News</title>
+    <link rel="stylesheet" href="{% static 'news_website_homework_app/css/categories.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>World News</h1>
+        {% for new in world_news_latest %}
+            <div class="news-item">
+                <h2>{{ new.title }}</h2>
+                <p>{{ new.text }}</p>
+                <h3>{{ new.category }}</h3>
+                <p class="date">{{ new.date_added }}</p>
+            </div>
+        {% endfor %}
+        <a href="{% url 'main_home_page' %}" class="back-home">Back to Home</a>
+    </div>
+</body>
+</html>
